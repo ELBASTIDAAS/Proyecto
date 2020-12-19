@@ -100,5 +100,5 @@ if (isset($_POST['btn_enviar'])) {
     $idPerfil = $usuario->idPerfil;
 }
 
-require_once 'usuario_vista_agregar.php';
+require_once 'usuario_vista_olvidar.php';
 ?>
