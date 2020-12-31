@@ -25,41 +25,51 @@ if (isset($_POST['btn_enviar'])) {
     $nombre = $_POST['nombre'];
     $contraseña = $_POST['contraseña'];
     $rContraseña = $_POST['rContraseña'];
+    $email = $_POST['correo'];
 
-    if (!empty($idUsuario)) {
-        $idUsuario = trim($idUsuario);
-        $idUsuario = filter_var($idUsuario, FILTER_SANITIZE_STRING);
-    } else {
-        $errores .= 'Debe ingresar un número de control <br/>';
-    }
-
-    if (!empty($nombre)) {
-        $nombre = trim($nombre);
-        $nombre = filter_var($nombre, FILTER_SANITIZE_STRING);
-    } else {
-        $errores .= 'Debe ingresar un nombre <br/>';
-    }
-
-    if (!empty($rContraseña)) {
-        $rContraseña = trim($rContraseña);
-        $rContraseña = filter_var($rContraseña, FILTER_SANITIZE_STRING);
-    } else {
-        $errores  .= 'Debe confirmar la contraseña<br/>';
-    }
-
-    if (!empty($contraseña)) {
-        $contraseña = trim($contraseña);
-        $contraseña = filter_var($contraseña, FILTER_SANITIZE_STRING);
-    } else {
-        $errores  .= 'Debe ingresar una contraseña<br/>';
-    }
-
-    if (!empty($rContraseña)) {
-        if ($contraseña != $rContraseña) {
-            $errores .= 'Las contraseñas no coinciden!.<br/>';
-            $rcontraseña = '';
+   
+        if(!empty($email)){
+            $email = trim($email);
+            $email = filter_var($email, FILTER_SANITIZE_EMAIL);
+        }else  {
+            $errores .="Debe ingresar un correo electronico ";
         }
-    }
+        if (!empty($idUsuario)) {
+            $idUsuario = trim($idUsuario);
+            $idUsuario = filter_var($idUsuario, FILTER_SANITIZE_STRING);
+        } else {
+            $errores .= 'Debe ingresar un número de control <br/>';
+        }
+    
+        if (!empty($nombre)) {
+            $nombre = trim($nombre);
+            $nombre = filter_var($nombre, FILTER_SANITIZE_STRING);
+        } else {
+            $errores .= 'Debe ingresar un nombre <br/>';
+        }
+    
+        if (!empty($rContraseña)) {
+            $rContraseña = trim($rContraseña);
+            $rContraseña = filter_var($rContraseña, FILTER_SANITIZE_STRING);
+        } else {
+            $errores  .= 'Debe confirmar la contraseña<br/>';
+        }
+    
+        if (!empty($contraseña)) {
+            $contraseña = trim($contraseña);
+            $contraseña = filter_var($contraseña, FILTER_SANITIZE_STRING);
+        } else {
+            $errores  .= 'Debe ingresar una contraseña<br/>';
+        }
+    
+        if (!empty($rContraseña)) {
+            if ($contraseña != $rContraseña) {
+                $errores .= 'Las contraseñas no coinciden!.<br/>';
+                $rcontraseña = '';
+            }
+        }
+    
+    
 
     //enviar/guardar si no hay errores
     if (!$errores) {
@@ -78,7 +88,7 @@ if (isset($_POST['btn_enviar'])) {
         </script>");
         } else {
             $sql = "insert into usuario ('numControl', 'contraseña', 'nombre') values (?, ?, ?);";
-            $sentencia = $pdo->prepare("INSERT INTO `dbalimentatec`.`usuario` (`numControl`, `contraseña`, `nombre`) VALUES ('$idUsuario', '$contraseña', '$nombre');");
+            $sentencia = $pdo->prepare("INSERT INTO `dbalimentatec`.`usuario` (`numControl`, `contraseña`, `nombre`,`correo`) VALUES ('$idUsuario', '$contraseña', '$nombre','$email');");
             $sentencia->execute();
             echo ("<script LANGUAGE='JavaScript'>
         window.alert('Usuario creado exitosamente');
@@ -95,6 +105,7 @@ if (isset($_POST['btn_enviar'])) {
 
     $idUsuario = $usuario->idUsuario;
     $nombre = $usuario->nombre;
+    $email = $usuario->email;
     $contraseña = $usuario->contraseña;
     $estado = $usuario->estado;
     $idPerfil = $usuario->idPerfil;
