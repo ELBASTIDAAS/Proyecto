@@ -62,23 +62,9 @@
                 <form action="usuario_agregar.php" method="POST">
                     <div class="form-row">
                         <div class="form-group mx-sm-2 col-sm-3">
-                            <label for="idUsuario">Número de control</label>
-                            <input type="text" name="idUsuario" placeholder='Obligatorio Ingresar!' id="idUsuario" class="form-control" style="<?=($idUsuario=='')?"border-color: red;":''?> " value="<?= (isset($idUsuario) && !$frm_enviado) ? $idUsuario : '' ?>">
+                            <label for="correo">Email</label>
+                            <input type="text" name="carreo" placeholder='Obligatorio Ingresar!' id="correo" class="form-control" style="<?=($email=='')?"border-color: red;":''?> " value="<?= (isset($email) && !$frm_enviado) ? $email : '' ?>">
                         </div>
-
-                        <div class="form-group mx-sm-2 col-sm-7">
-                            <label for="nombre">Nombre</label>
-                            <input type="text" name="nombre" placeholder='Obligatorio Ingresar!' id="nombre" class="form-control" style="<?=($nombre=='')?"border-color: red;":''?> " value="<?= (isset($nombre) && !$frm_enviado) ? $nombre : '' ?>">
-                        </div>
-                    </div>
-                    <div class="form-row">
-                        <div class="form-group mx-sm-2 col-sm-5">
-                            <label for="contraseña">Contraseña</label>
-                            <input type="password" name="contraseña" placeholder='Obligatorio Ingresar!' id="contraseña" class="form-control" style="<?=($contraseña=='')?"border-color: red;":''?> " value="<?= (isset($contraseña) && !$frm_enviado) ? $contraseña : '' ?>">
-                        </div>
-                        <div class="form-group mx-sm-2 col-md-5">
-                        <label for="rContraseña">Confirmar contraseña</label>
-                        <input type="password" name="rContraseña" placeholder='Obligatorio Ingresar!' id="rContraseña" class="form-control" style="<?=($rContraseña=='')?"border-color: red;":''?> " value="<?= (isset($rContraseña) && !$frm_enviado) ? $rContraseña : '' ?>">
                     </div>
                     </div>
 
