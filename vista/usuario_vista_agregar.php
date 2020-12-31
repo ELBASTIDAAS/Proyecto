@@ -79,6 +79,13 @@
                         <div class="form-group mx-sm-2 col-md-5">
                         <label for="rContraseña">Confirmar contraseña</label>
                         <input type="password" name="rContraseña" placeholder='Obligatorio Ingresar!' id="rContraseña" class="form-control" style="<?=($rContraseña=='')?"border-color: red;":''?> " value="<?= (isset($rContraseña) && !$frm_enviado) ? $rContraseña : '' ?>">
+
+                    </div>
+                    </div>
+                            <div class ="form-group mx-sm-2 col-sm-5">
+                            <label for="correo">Email</label>
+                            <input type="email" name="correo" placeholder='Obligatorio Ingresar!' id="correo" class="form-control" style="<?=($correo=='')?"border-color: red;":''?> " value="<?= (isset($correo) && !$frm_enviado) ? $correo : '' ?>">
+                      
                     </div>
                     </div>
 
