@@ -83,8 +83,8 @@
                     </div>
                     </div>
                             <div class ="form-group mx-sm-2 col-sm-5">
-                            <label for="correo">Email</label>
-                            <input type="email" name="correo" placeholder='Obligatorio Ingresar!' id="correo" class="form-control" style="<?=($correo=='')?"border-color: red;":''?> " value="<?= (isset($correo) && !$frm_enviado) ? $correo : '' ?>">
+                            <label for="email">Email</label>
+                            <input type="email" name="correo" placeholder='Obligatorio Ingresar!' id="email" class="form-control" style="<?=($email=='')?"border-color: red;":''?> " value="<?= (isset($email) && !$frm_enviado) ? $email : '' ?>">
                       
                     </div>
                     </div>
