@@ -61,7 +61,11 @@
                 </div>
                 <form action="usuario_agregar.php" method="POST">
                     <div class="form-row">
-                        <div class="form-group mx-sm-2 col-sm-3">
+                    <div class="form-group mx-sm-2 col-sm-3">
+                            <label for="idUsuario">Número de control</label>
+                            <input type="text" name="idUsuario" placeholder='Obligatorio Ingresar!' id="idUsuario" class="form-control" style="<?=($idUsuario=='')?"border-color: red;":''?> " value="<?= (isset($idUsuario) && !$frm_enviado) ? $idUsuario : '' ?>">
+                        </div>   
+                    <div class="form-group mx-sm-2 col-sm-3">
                             <label for="correo">Email</label>
                             <input type="text" name="carreo" placeholder='Obligatorio Ingresar!' id="correo" class="form-control" style="<?=($email=='')?"border-color: red;":''?> " value="<?= (isset($email) && !$frm_enviado) ? $email : '' ?>">
                         </div>
@@ -88,7 +92,7 @@
                     <?php endif; ?>
 
                     <div class="form-group mx-sm-2">
-                        <input type="submit" value="Guardar" name="btn_enviar" class="btn btn-info">
+                        <input type="submit" value="Enviar" name="btn_enviar" class="btn btn-info">
                     </div>
                 </form>
             </div>
